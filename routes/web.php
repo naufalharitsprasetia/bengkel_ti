@@ -47,6 +47,6 @@ Route::get('/servis', [ServisController::class, 'index']);
 // Admin
 Route::get('/admin-control', [AdminController::class, 'index'])->middleware('admin');
 Route::resource('/crud-category', CRUDCategoryController::class)->parameters(['crud-category' => 'category:slug']);
-Route::resource('/crud-produk', CRUDProductController::class)->parameters(['crud-product' => 'product:slug']);
+Route::resource('/crud-product', CRUDProductController::class)->parameters(['crud-product' => 'product:slug']);
 Route::resource('/crud-servis', CRUDServisController::class)->parameters(['crud-servis' => 'servis']);
 // });

@@ -13,6 +13,11 @@ class CRUDServisController extends Controller
     public function index()
     {
         //
+        return view('crud-servis.index', [
+            'title' => 'CRUD Servis',
+            'active' => 'lain-lain',
+            'services' => Servis::all()
+        ]);
     }
 
     /**
@@ -21,6 +26,10 @@ class CRUDServisController extends Controller
     public function create()
     {
         //
+        return view('crud-servis.create', [
+            'title' => 'Create Servis',
+            'active' => 'lain-lain',
+        ]);
     }
 
     /**
@@ -29,6 +38,17 @@ class CRUDServisController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'jenis_barang' => 'required',
+            'jenis_servis' => 'required',
+            'tanggal_servis' => 'required',
+            'status' => 'required'
+        ]);
+
+        Servis::create($validatedData);
+
+        return redirect('/crud-servis')->with('success', 'Servis has been added!');
     }
 
     /**
@@ -45,6 +65,11 @@ class CRUDServisController extends Controller
     public function edit(Servis $servis)
     {
         //
+        return view('crud-servis.edit', [
+            'title' => 'Edit Servis',
+            'active' => 'lain-lain',
+            'servis' => $servis
+        ]);
     }
 
     /**
@@ -53,6 +78,20 @@ class CRUDServisController extends Controller
     public function update(Request $request, Servis $servis)
     {
         //
+        $rules = [
+            'nama' => 'required|max:255',
+            'jenis_barang' => 'required',
+            'jenis_servis' => 'required',
+            'tanggal_servis' => 'required',
+            'status' => 'required'
+        ];
+
+
+        $validatedData = $request->validate($rules);
+
+        Servis::where('id', $servis->id)->update($validatedData);
+
+        return redirect('/crud-servis')->with('success', 'Servis telah di update!');
     }
 
     /**
@@ -61,5 +100,7 @@ class CRUDServisController extends Controller
     public function destroy(Servis $servis)
     {
         //
+        Servis::destroy($servis->id);
+        return redirect('/crud-servis')->with('success', 'Servis has been deleted!');
     }
 }

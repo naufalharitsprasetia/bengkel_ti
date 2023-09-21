@@ -47,7 +47,7 @@
                             Hai, {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/profil"><i class="bi bi-layout-text-sidebar-reverse"></i>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-layout-text-sidebar-reverse"></i>
                                     My Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('jenis_barang');
-            $table->string('kerusakan');
-            $table->date('tanggal_servis');
+            $table->string('jenis_servis');
+            $table->timestamp('tanggal_servis');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
