@@ -1,0 +1,56 @@
+/** @format */
+* {
+    font-family: "Poppins", sans-serif;
+}
+.lucky-font {
+    font-family: "Luckiest Guy", cursive;
+}
+.cover {
+    height: 91vh;
+    background-color: #010038;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.desc-container p {
+    font-size: 1rem;
+}
+@media (max-width: 991.98px) {
+    .cover {
+        flex-direction: column;
+        padding: 15px !important;
+    }
+    .l-cover h2 {
+        font-size: 5vh;
+    }
+    .l-cover p {
+        font-size: 3vh;
+    }
+    .r-cover {
+        text-align: center;
+        margin-top: 25px;
+        display: inline-block !important;
+    }
+    .r-cover img {
+        width: 20vh;
+        /* transform: scale(0.5); */
+    }
+}
+@media (max-width: 575.98px) {
+    .l-cover h2 {
+        font-size: 4vh;
+    }
+    .l-cover p {
+        font-size: 2vh;
+    }
+    .price-card {
+        display: block !important;
+        font-size: 12px;
+    }
+    .price-card a {
+        margin-top: 2px;
+        transform: scale(0.8);
+    }
+}
