@@ -33,12 +33,12 @@
                 software dll, Dan juga Bengkel TI menjual beberapa Aksesoris seperti
                 (Mouse, keyboard, headset, dll).
             </p>
-            <a href="about.html">
+            <a href="/about">
                 <button class="btn btn-primary btn-lg" type="button">Detail</button>
             </a>
         </div>
         <div class="order-1 desc-image col-12 col-lg-5">
-            <img src="img/desc-img.png" alt="" class="img-fluid" />
+            <img src="/img/desc-img.png" alt="" class="img-fluid" />
         </div>
     </div>
     <!-- End -->
