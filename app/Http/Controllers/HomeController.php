@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,8 @@ class HomeController extends Controller
     {
         return view('index', [
             'active' => 'home',
-            'title' => 'Home'
+            'title' => 'Home',
+            'products' => Product::all()
         ]);
     }
     public function about()
