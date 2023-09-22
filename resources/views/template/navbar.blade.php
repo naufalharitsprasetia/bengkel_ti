@@ -37,7 +37,10 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $active === 'keranjang' ? 'active' : '' }}" href="/keranjang"><i
-                            class="fa-solid fa-cart-shopping"></i> Cart</a>
+                            class="fa-solid fa-cart-shopping"></i> Cart @auth
+                            <span class="badge bg-secondary">{{ auth()->user()->jumlah_keranjang }}</span>
+                        @endauth
+                    </a>
                 </li>
                 {{-- Login Start  --}}
                 @auth

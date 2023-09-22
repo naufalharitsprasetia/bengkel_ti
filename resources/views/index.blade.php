@@ -467,7 +467,7 @@
         </div>
         <div class="contact text-center">
             <div class="btn btn-lg btn-success">
-                <i class="fa-brands fa-whatsapp"></i> +62 812234238282
+                <i class="fa-brands fa-whatsapp"></i> +62 812-3423-8282
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pembelian;
 use Illuminate\Http\Request;
 
 class KeranjangController extends Controller
@@ -11,7 +12,8 @@ class KeranjangController extends Controller
     {
         return view('keranjang', [
             'title' => 'Keranjang',
-            'active' => 'keranjang'
+            'active' => 'keranjang',
+            'pembelians' => Pembelian::where('user_id', auth()->user()->id)->get()
         ]);
     }
 }

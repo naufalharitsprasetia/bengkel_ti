@@ -11,7 +11,9 @@ use App\Http\Controllers\CRUDServisController;
 use App\Http\Controllers\CRUDProductController;
 use App\Http\Controllers\CRUDCategoryController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\ServisController;
+use App\Models\Pembelian;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +37,21 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-// GROUPING MiddleWare Auth
-// Route::middleware('auth')->group(function () {   
 // Shop
 Route::get('/shop', [ProductController::class, 'index']);
 Route::get('/shop/{category:slug}', [ProductController::class, 'show']);
-// Keranjang
-Route::get('/keranjang', [KeranjangController::class, 'index']);
-// Keranjang
-Route::get('/servis', [ServisController::class, 'index']);
-// Admin
-Route::get('/admin-control', [AdminController::class, 'index'])->middleware('admin');
-Route::resource('/crud-category', CRUDCategoryController::class)->parameters(['crud-category' => 'category:slug']);
-Route::resource('/crud-product', CRUDProductController::class)->parameters(['crud-product' => 'product:slug']);
-Route::resource('/crud-servis', CRUDServisController::class)->parameters(['crud-servis' => 'servis']);
-// });
+// GROUPING MiddleWare Auth
+Route::middleware('auth')->group(function () {
+    // Add
+    Route::post('/tambah-keranjang', [PembelianController::class, 'add']);
+    Route::delete('/delete-keranjang/{pembelian}', [PembelianController::class, 'delete']);
+    // Keranjang
+    Route::get('/keranjang', [KeranjangController::class, 'index']);
+    // Servis
+    Route::get('/servis', [ServisController::class, 'index']);
+    // Admin
+    Route::get('/admin-control', [AdminController::class, 'index'])->middleware('admin');
+    Route::resource('/crud-category', CRUDCategoryController::class)->parameters(['crud-category' => 'category:slug']);
+    Route::resource('/crud-product', CRUDProductController::class)->parameters(['crud-product' => 'product:slug']);
+    Route::resource('/crud-servis', CRUDServisController::class)->parameters(['crud-servis' => 'servis']);
+});
